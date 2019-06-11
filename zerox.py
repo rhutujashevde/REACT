@@ -38,16 +38,17 @@ time.sleep(2)
 leds.off()
 ans = "no"
 while True:
-    if button1.is_pressed:
-        ans = "yes"
-        mcqid = random.randint(1,5)
-        mcq = session.query(Mcqs).filter_by(id=mcqid).first()
-        print(mcq.question)
-        print("a.",mcq.a)
-        print("b.",mcq.b)
-        print("c.",mcq.c)
-        print("d.",mcq.d)
-        time.sleep(1)
+	if ans == "no":
+        if button1.is_pressed:
+            ans = "yes"
+            mcqid = random.randint(1,5)
+            mcq = session.query(Mcqs).filter_by(id=mcqid).first()
+            print(mcq.question)
+            print("a.",mcq.a)
+            print("b.",mcq.b)
+            print("c.",mcq.c)
+            print("d.",mcq.d)
+            time.sleep(1)
     if ans == "yes":
         if button2.is_pressed:
             ans = "a"
